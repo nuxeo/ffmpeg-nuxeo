@@ -25,6 +25,7 @@ VERSION="$MAJOR.$MINOR.$PATCH"
 echo "libvpx - Nuxeo version" > description-pak
 checkinstall --pkgname=libvpx-nuxeo --pkgversion="$VERSION" \
     --conflicts=libvpx-dev --replaces=libvpx-dev \
+    --provides=libvpx-dev \
     --maintainer="'Nuxeo Packagers <packagers@nuxeo.com>'" \
     --backup=no --deldoc=yes --deldesc=yes --fstrans=no --default
 popd

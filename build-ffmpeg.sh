@@ -28,7 +28,7 @@ VERSION=$(./version.sh)
 echo "ffmpeg - Nuxeo version" > description-pak
 checkinstall --pkgname=ffmpeg-nuxeo --pkgversion="$VERSION" \
     --conflicts=ffmpeg,libav-tools --replaces=ffmpeg,libav-tools \
-    --requires=x264-nuxeo,libvpx-nuxeo \
+    --provides=ffmpeg --requires=x264-nuxeo,libvpx-nuxeo \
     --maintainer="'Nuxeo Packagers <packagers@nuxeo.com>'" \
     --backup=no --deldoc=yes --deldesc=yes --fstrans=no --default
 popd
