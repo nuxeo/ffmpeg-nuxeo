@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-LIBFAAC="false"
+LIBFAAC=${1:-false}
 
 cd $(dirname "$0")
 
