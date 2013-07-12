@@ -1,13 +1,17 @@
 #!/bin/bash -e
 
-BRANCH="stable"
+#BRANCH="stable"
+# Before yasm version bump to 1.2.0 for AVX2 support
+BRANCH="b924133cabd125286488e16cfa71488ad4105d63~"
 
 if [ -d "x264" ]; then
     pushd x264
     if [ -f "Makefile" ]; then
         make distclean || true
     fi
-    git pull
+    # can't pull when using a dettached head
+    # git pull
+    git fetch --all
     popd
 else
     git clone git://git.videolan.org/x264
