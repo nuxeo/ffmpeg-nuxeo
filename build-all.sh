@@ -1,6 +1,11 @@
 #!/bin/bash -e
 
-LIBFAAC=${1:-false}
+if test -n "$(apt-cache search libfaac-dev)"; then
+  LIBFAAC_DEFAULT=true
+else
+  LIBFAAC_DEFAULT=false
+fi
+LIBFAAC=${1:-$LIBFAAC_DEFAULT}
 
 cd $(dirname "$0")
 
