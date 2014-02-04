@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-BRANCH="release/0.8"
+BRANCH="release/1.1"
 
 if [ "$LIBFAAC" = "true" ]; then
     FAACOPTIONS="--enable-libfaac --enable-nonfree"
