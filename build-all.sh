@@ -6,7 +6,7 @@ else
   LIBFAAC_DEFAULT=false
 fi
 LIBFAAC=${1:-$LIBFAAC_DEFAULT}
-BUILD_YASM=${TEST:-"false"}
+BUILD_YASM=${BUILD_YASM:-"false"}
 
 cd $(dirname "$0")
 
