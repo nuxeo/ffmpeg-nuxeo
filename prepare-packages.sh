@@ -8,7 +8,9 @@ apt-get -y purge x264 || true
 apt-get -y purge x264-nuxeo || true
 apt-get -y purge libvpx-dev || true
 apt-get -y purge libx264-dev || true
-apt-get -y purge yasm || true
+if [ "$BUILD_YASM" = "true" ]; then
+    apt-get -y purge yasm || true
+fi
 
 apt-get update
 apt-get -y install build-essential checkinstall git libjack-jackd2-dev \
