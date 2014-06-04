@@ -1,12 +1,6 @@
 #!/bin/bash -e
 
-# For yasm < 1.2.0
-BRANCH="b924133cabd125286488e16cfa71488ad4105d63~"
-YASM_VERSIONS=$(apt-cache madison yasm | grep 'Packages$' | cut -d '|' -f 2)
-for yasm_version in $YASM_VERSIONS; do
-  # yasm >= 1.2.0 found
-  dpkg --compare-versions "$yasm_version" ge "1.2.0" && BRANCH="stable" && break
-done
+BRANCH="stable"
 
 if [ -d "x264" ]; then
     pushd x264
