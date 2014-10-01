@@ -20,4 +20,6 @@ apt-get -y install build-essential checkinstall git libjack-jackd2-dev \
 if [ "$LIBFAAC" = "true" ]; then
     apt-get -y install libfaac-dev
 fi
-
+if [ "$BUILD_YASM" = "false" ] && ! (hash yasm 2>/dev/null); then
+    apt-get -y install yasm
+fi
