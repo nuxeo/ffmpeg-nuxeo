@@ -20,14 +20,14 @@ fi
 pushd ffmpeg-$RELEASE
 ./configure --enable-gpl --enable-libmp3lame --enable-libopencore-amrnb \
     --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis \
-    --enable-libx264 --enable-libvpx $FAACOPTIONS \
-    --enable-version3 --enable-x11grab --extra-libs="-ldl"
+    --enable-libx264 --enable-libvpx $FAACOPTIONS --enable-static --disable-shared \
+    --enable-version3 --extra-libs="-ldl -static" --extra-cflags="--static" \
+    --disable-ffplay --disable-ffserver
 make
 echo "ffmpeg - Nuxeo version" > description-pak
 checkinstall --pkgname=ffmpeg-nuxeo --pkgversion="$RELEASE" \
     --conflicts=ffmpeg,libav-tools --replaces=ffmpeg,libav-tools \
     --provides=ffmpeg --maintainer="'Nuxeo Packagers <packagers@nuxeo.com>'" \
-    --requires=x264-nuxeo,libvpx-nuxeo,libjack-jackd2-dev,libmp3lame-dev,libopencore-amrnb-dev,libopencore-amrwb-dev,libsdl1.2-dev,libtheora-dev,libva-dev,libvdpau-dev,libvorbis-dev,libx11-dev,libxfixes-dev,texi2html,zlib1g-dev \
     --backup=no --deldoc=yes --deldesc=yes --fstrans=no --default
 popd
 
