@@ -11,7 +11,7 @@ if [ -d "libvpx" ]; then
     git pull
     popd
 else
-    git clone http://git.chromium.org/webm/libvpx.git
+    git clone https://chromium.googlesource.com/webm/libvpx.git
 fi
 
 pushd libvpx
