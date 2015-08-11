@@ -17,7 +17,11 @@ Run as root or with sudo:
     If true, then the package 'libfaac-dev' will be installed.
     If parameter is not set, then it is true if the package 'libfaac-dev' is installed.
 
-WARNING: this will first remove the following packages:
+## WARNING
+
+**If nuxeo has been installed with the debian package, the script will remove it along with the nuxeo data**
+
+This will also remove the following packages:
 
 - `ffmpeg`
 - `ffmpeg-nuxeo`
