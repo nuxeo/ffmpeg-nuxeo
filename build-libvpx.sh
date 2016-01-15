@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-TAG="v1.3.0"
+TAG="v1.5.0"
 
 if [ -d "libvpx" ]; then
     pushd libvpx
