@@ -7,19 +7,15 @@ It has been mainly tested on Ubuntu >= 12.04 (Precise Pangolin).
 By default, it will not include AAC support since the `libfaac` libraries contain some non-free code;
 see the `LIBFAAC` parameter.
 
-## Usage
-
-Run as root or with sudo:
-
-    build-all.sh [LIBFAAC]
-
-    LIBFAAC: Whether to include AAC support (i.e. compile 'ffmpeg' with "--enable-libfaac --enable-nonfree" options).
-    If true, then the package 'libfaac-dev' will be installed.
-    If parameter is not set, then it is true if the package 'libfaac-dev' is installed.
-
 ## WARNING
 
-**If nuxeo has been installed with the debian package, the script will remove it along with the nuxeo data**
+The preferred build method is to run this inside a docker container to avoid polluting your environment.
+See: https://github.com/nuxeo/nuxeo-tools-docker/tree/master/ffmpeg
+
+If you do not want to use docker, be aware of the following:
+
+Due to cascading dependencies, the script would purge the nuxeo debian package if present.
+To be safe, the build will refuse to execute if it detects the package.
 
 This will also remove the following packages:
 
@@ -32,7 +28,15 @@ This will also remove the following packages:
 - `yasm` (if `BUILD_YASM=true`)
 - `libav-tools`
 
- your existing x264, libvpx, libx264-dev, ffmpeg and libav-tools packages.
+## Usage
+
+Run as root or with sudo:
+
+    build-all.sh [LIBFAAC]
+
+    LIBFAAC: Whether to include AAC support (i.e. compile 'ffmpeg' with "--enable-libfaac --enable-nonfree" options).
+    If true, then the package 'libfaac-dev' will be installed.
+    If parameter is not set, then it is true if the package 'libfaac-dev' is installed.
 
 ### Shell parameters
 

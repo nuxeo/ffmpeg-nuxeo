@@ -1,4 +1,13 @@
-#!/bin/bash -e
+#!/bin/bash
+
+dpkg --status nuxeo > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "This should not be run on a server with the nuxeo package installed."
+    echo "Please refer to the README.md"
+    exit 1
+fi
+
+set -e
 
 export DEBIAN_FRONTEND=noninteractive
 
