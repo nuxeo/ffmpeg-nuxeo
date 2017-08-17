@@ -3,7 +3,9 @@
 RELEASE="2.8.12"
 
 if [ "$LIBFAAC" = "true" ]; then
-    FAACOPTIONS="--enable-libfaac --enable-nonfree"
+    FAACOPTIONS="--enable-libfaac --enable-nonfree --enable-libx264"
+else
+    FAACOPTIONS="--disable-libx264"
 fi
 
 if [ -d "ffmpeg-$RELEASE" ]; then
@@ -20,7 +22,7 @@ fi
 pushd ffmpeg-$RELEASE
 ./configure --enable-gpl --enable-libmp3lame --enable-libopencore-amrnb \
     --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis \
-    --enable-libx264 --enable-libvpx $FAACOPTIONS --enable-static --disable-shared \
+    --enable-libvpx $FAACOPTIONS --enable-static --disable-shared \
     --enable-version3 --extra-libs="-ldl -static" --extra-cflags="--static" \
     --disable-ffplay --disable-ffserver --disable-network
 make
