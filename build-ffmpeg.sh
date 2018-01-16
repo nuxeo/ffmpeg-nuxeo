@@ -24,6 +24,7 @@ pushd ffmpeg-$RELEASE
     --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis \
     --enable-libvpx $FAACOPTIONS --enable-static --disable-shared \
     --enable-version3 --extra-libs="-ldl -static" --extra-cflags="--static" \
+    --enable-libfreetype \
     --disable-ffplay --disable-ffserver --disable-network
 make
 echo "ffmpeg - Nuxeo version" > description-pak
