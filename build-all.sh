@@ -17,5 +17,6 @@ if [ "$BUILD_YASM" = "true" ]; then
 fi
 ./build-x264.sh
 ./build-libvpx.sh
+./build-nasm.sh
 ./build-ffmpeg.sh
 
