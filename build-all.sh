@@ -15,8 +15,8 @@ export LIBFAAC BUILD_YASM
 if [ "$BUILD_YASM" = "true" ]; then
     ./build-yasm.sh
 fi
+./build-nasm.sh
 ./build-x264.sh
 ./build-libvpx.sh
-./build-nasm.sh
 ./build-ffmpeg.sh
 
