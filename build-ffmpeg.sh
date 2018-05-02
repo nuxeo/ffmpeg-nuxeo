@@ -1,9 +1,9 @@
 #!/bin/bash -e
 
-RELEASE="2.8.12"
+RELEASE="3.4.2"
 
 if [ "$LIBFAAC" = "true" ]; then
-    FAACOPTIONS="--enable-libfaac --enable-nonfree --enable-libx264"
+    FAACOPTIONS="--enable-nonfree --enable-libx264"
 else
     FAACOPTIONS="--disable-libx264"
 fi
@@ -22,10 +22,10 @@ fi
 pushd ffmpeg-$RELEASE
 ./configure --enable-gpl --enable-libmp3lame --enable-libopencore-amrnb \
     --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis \
-    --enable-libvpx $FAACOPTIONS --enable-static --disable-shared \
+    --enable-libvpx $FAACOPTIONS --enable-static \
     --enable-version3 --extra-libs="-ldl -static" --extra-cflags="--static" \
-    --enable-libfreetype \
-    --disable-ffplay --disable-ffserver --disable-network
+    --enable-libfreetype --enable-ffplay --enable-libxvid --enable-hardcoded-tables \
+    --disable-ffserver --disable-network --disable-shared
 make
 echo "ffmpeg - Nuxeo version" > description-pak
 checkinstall --pkgname=ffmpeg-nuxeo --pkgversion="$RELEASE" \
